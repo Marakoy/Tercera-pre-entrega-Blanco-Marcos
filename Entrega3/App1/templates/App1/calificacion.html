@@ -1,0 +1,48 @@
+{% extends "App1/inicio.html" %}
+
+{% load static %}
+
+
+
+
+    
+
+{% block calificacion %}
+
+
+
+<form action="" method="post">{% csrf_token %}
+
+  <!-- Aca esta la magia de Django-->
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">ENVIAR CALIFICACIONES</label>
+    <select id="inputState" name="calificacion" class="form-select">
+      <option selected>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="col-12">
+    <button type="submit"  value="Enviar"  class="btn btn-primary">ENVIAR</button>
+  </div>
+</form> 
+
+<form action="{% url 'getCalificacion' %}" method="get" >
+
+  <label for="calificacion" class="form-label">BUSCAR CALIFICACIONES</label>
+  <div class="form-group form-group-textarea mb-md-0" >
+   
+    <textarea class="form-control" id="calificacion" name="calificacion" placeholder="Busca las calificaciones" required></textarea>
+    <div class="invalid-feedback" data-sb-feedback="message:required">calificacion.</div>
+</div>
+<div class="col-12">
+  <div class="col-12">
+    <button type="submit"  value="Enviar"  class="btn btn-primary" >Buscar</button>
+  </div>
+</form> 
+          
+
+
+{% endblock %}
